@@ -1,0 +1,606 @@
+
+<!-- NAMES ARE IMPORTANT
+	 I don't have a fancy script system, so there are code things that line up with these 
+	 specific NAMES for each STEP. -->
+	 
+<order type="PC">
+    <step>SHIP_INTRO_1</step>
+    <step>SHIP_INTRO_2</step>
+    <step>SHIP_INTRO_3</step>
+    <step>SHIP_INTRO_4</step>
+    <step>SHIP_INTRO_5</step>
+	
+    <step>POWER_SYSTEM_1</step>
+    <step>POWER_SYSTEM_2</step>
+	
+    <step>DAMAGE_SYSTEM_1</step>
+    <step>DAMAGE_SYSTEM_2</step>
+    <step>DAMAGE_SYSTEM_3</step>
+    <step>DAMAGE_SYSTEM_4</step>
+    <step>DAMAGE_SYSTEM_5</step>
+    <step>DAMAGE_SYSTEM_5_5</step>
+	
+    <step>FIRE_PC_1</step>
+    <step>FIRE_END</step>
+	
+    <step>DAMAGE_SYSTEM_6</step>
+    <step>DAMAGE_SYSTEM_7</step>
+
+    <step>STAR_MAP_1</step>
+
+    <step>COMBAT_0</step>
+    <step>COMBAT_1</step>
+    <step>COMBAT_2</step>
+    <step>COMBAT_3</step>
+    <step>COMBAT_4</step>
+    <step>COMBAT_4_5</step>
+	<step>COMBAT_4_6</step>
+
+    <step>INVENTORY_1</step>
+    <step>INVENTORY_2</step>
+
+    <step>COMBAT_5</step>
+
+    <step>UPGRADES_1</step>
+    <step>UPGRADES_1_2</step>
+    <step>UPGRADES_2</step>
+    <step>UPGRADES_3</step>
+
+    <step>DONE_1</step>
+</order>
+
+<order type="IPAD">
+    <step>SHIP_INTRO_1</step>
+    <step>SHIP_INTRO_2</step>
+    <step>SHIP_INTRO_3</step>
+    <step>SHIP_INTRO_5</step>
+	
+    <step>POWER_SYSTEM_1</step>
+    <step>POWER_SYSTEM_2</step>
+	
+	<step>IPAD_TOOLTIPS</step>
+	
+    <step>DAMAGE_SYSTEM_1</step>
+    <step>DAMAGE_SYSTEM_2</step>
+    <step>DAMAGE_SYSTEM_3</step>
+    <step>DAMAGE_SYSTEM_4</step>
+    <step>DAMAGE_SYSTEM_5</step>
+    <step>DAMAGE_SYSTEM_5_5</step>
+	
+	<step>FIRE_IPAD_1</step>
+	<step>FIRE_IPAD_2</step>
+		
+    <step>FIRE_END</step>
+	
+    <step>DAMAGE_SYSTEM_6</step>
+    <step>DAMAGE_SYSTEM_7</step>
+
+    <step>STAR_MAP_1</step>
+
+    <step>COMBAT_0</step>
+	<step>COMBAT_IPAD_0</step>
+    <step>COMBAT_1</step>
+    <step>COMBAT_2</step>
+    <step>COMBAT_3</step>
+    <step>COMBAT_4</step>
+    <step>COMBAT_4_5</step>
+	<step>COMBAT_4_6</step>
+
+    <step>INVENTORY_1</step>
+    <step>INVENTORY_2</step>
+
+    <step>COMBAT_5</step>
+
+    <step>UPGRADES_1</step>
+    <step>UPGRADES_1_2</step>
+    <step>UPGRADES_2</step>
+    <step>UPGRADES_3</step>
+
+    <step>DONE_1</step>
+</order>
+
+<!--- TEXT
+	default = used for both PC and iPad
+	IPAD / PC = used for specific
+	NOTE: If something appears in both the iPad list and the PC list, yet there is no text for it specifically, it will default to whatever is available. (Thus "default" isn't necessary. But makes this more readable)
+--->
+	 
+<step name="SHIP_INTRO_1">
+	<default>Ваш корабль "Kestrel" является центром всех событий в игре.</default>
+	<continue>true</continue>
+</step>
+
+<step name="SHIP_INTRO_2">
+	<default>Круглые значки внизу экрана представляют основные системы вашего корабля. \n\nСистемы используют энергию реактора (на него указывает стрелка).</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>-55</x>
+			<y>500</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>-52</x>
+			<y>548</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<step name="SHIP_INTRO_3">
+	<default>Это подсистемы вашего корабля. \n\nВ отличие от систем, им не требуется энергия реактора.</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>1020</x>
+			<y>525</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>668</x>
+			<y>557</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<!--- PC Only. Cover tooltips when you cover powering-->
+<step name="SHIP_INTRO_4">
+	<PC>Наведите мышь на иконку любой из систем, чтобы получить больше информации о ней. \n\nСоответствующий отсек будет подсвечен.</PC>
+	<continue>true</continue>
+</step>
+
+<step name="SHIP_INTRO_5">
+	<default>Индикатор прочности корпуса, состояния щитов и ресурсов в левом верхнем углу. \n\nЕсли прочность дойдёт до нуля, ваш корабль взорвётся.</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>100</x>
+			<y>170</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>100</x>
+			<y>130</y>
+			<angle>270</angle>
+	</arrow>
+</step>
+
+
+<step name="POWER_SYSTEM_1">
+	<default>Пора отправляться, но, кажется, двигатели сейчас отключены. \n\nЗЕЛЁНЫМ помечена запитанная ячейка системы. БЕЛАЯ ячейка системы обесточена и не приносит пользы кораблю.</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>42</x>
+			<y>540</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>154</x>
+			<y>548</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+
+<step name="POWER_SYSTEM_2">
+	<PC>Кликните ЛКМ по иконке двигателя, и часть энергия реактора будет направлена в него. \n\nВажные системы старайтесь держать полностью запитанными. Правый клик обесточит систему.</PC>
+	<IPAD>Потяните вверх значок системы двигателя для перераспределения энергии с реактора на ваш двигатель. \n\nСтарайтесь сохранять системы полностью запитанными. Потяните вниз, чтобы обесточить систему, если вы захотите перераспределить энергию.</IPAD>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>42</x>
+			<y>540</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>154</x>
+			<y>548</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<!-- IPAD ONLY — COVER TOOLTIPS-->
+<step name="IPAD_TOOLTIPS">
+	<IPAD>Перетащите значок вправо на систему, чтобы открыть его инфо панель (как указано стрелкой). \n\nЭто даст вам более подробное описание его назначения и статуса.</IPAD>
+	<continue>false</continue>
+</step>
+
+<step name="DAMAGE_SYSTEM_1">
+	<default>О нет! Отсек двигателя получил 2 единицы повреждения! Иконка стала красной, показывая, что он сломан. \n\nКорпус также повреждён на 2 единицы.</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>42</x>
+			<y>540</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>225</x>
+			<y>325</y>
+			<angle>0</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>154</x>
+			<y>548</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>96</x>
+			<y>343</y>
+			<angle>0</angle>
+	</arrow>
+</step>
+
+<step name="DAMAGE_SYSTEM_2">
+	<PC>Ваша команда не может чинить корпус, но может ремонтировать двигатели! \n\nВыберите члена экипажа, нажав на него ЛКМ. Можно выбрать всю команду, зажав ЛКМ и выделив их на корабле. Выберите членов команды для продолжения. </PC>
+	<IPAD>Ваша команда не может чинить корпус, но может ремонтировать двигатели! \n\nВыберите члена экипажа, ТАПНУВ на него. Можно выбрать всю команду, ТАПНУВ по экрану и ВЫДЕЛИВ их на корабле. Выберите членов команды для продолжения. </IPAD>
+	<continue>false</continue>
+</step>
+
+<step name="DAMAGE_SYSTEM_3">
+	<PC>Выбрав экипаж, нажмите ПКМ туда, куда вы хотите их отправить. \n\nОтправьте выбранный экипаж в отсек с двигателями.</PC>
+	<IPAD>Выбрав экипаж, ТАПНИТЕ туда, куда вы хотите их отправить. \n\nОтправьте выбранный экипаж в отсек с двигателями.</IPAD>
+	<continue>false</continue>
+		<arrow type="PC">
+			<x>225</x>
+			<y>325</y>
+			<angle>0</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>96</x>
+			<y>343</y>
+			<angle>0</angle>
+	</arrow>
+</step>
+
+<step name="DAMAGE_SYSTEM_4">
+	<default>Члены экипажа будут автоматически ремонтировать системы, тушить пожары, заделывать пробоины и сражаться с захватчиками в отсеке. \n\nВраги, нехватка кислорода и огонь наносят урон экипажу.</default>
+	<continue>false</continue>
+</step>
+
+<step name="DAMAGE_SYSTEM_5">
+	<default>Отлично, двигатели восстановлены! \n\nЗаметьте, что отремонтированные системы автоматически восстанавливают питание до последней включённой мощности.</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>43</x>
+			<y>534</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>154</x>
+			<y>548</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<step name="DAMAGE_SYSTEM_5_5">
+	<default>Некоторые системы могут обслуживаться членами экипажа, это будет давать небольшой бонус к системе. \n\nСилуэт над индикатором системы показывает, обслуживается ли система в данный момент.</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>43</x>
+			<y>534</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>154</x>
+			<y>548</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<step name="FIRE_IPAD_1">
+	<IPAD>О нет! В вашем шлюзе вспыхнул огонь! Вы можете послать члена своей команды потушить его, но также можно использовать преимущество ваших шлюзов. \n\nНАЖМИТЕ на иконку системы управления дверями внизу справа, чтобы контролировать двери корабля.</IPAD>
+	<continue>false</continue>
+	<arrow type="IPAD">
+			<x>724</x>
+			<y>557</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<step name="FIRE_IPAD_2">
+	<IPAD>Нажмите на дверь, чтобы открыть или закрыть её. Проведите по дверям, чтобы открывать (или закрывать) несколько дверей быстрее. \n\nПопробуйте открыть ШЛЮЗЫ сейчас.</IPAD>
+	<continue>false</continue>
+	<arrow type="IPAD">
+			<x>366</x>
+			<y>533</y>
+			<angle>270</angle>
+	</arrow>
+</step>
+
+<step name="FIRE_PC_1">
+	<PC>О нет! В отсеке вспыхнул огонь! Вы можете послать члена своей команды потушить его, а можете использовать преимущество ваших шлюзов. \n\nОткройте ДВЕРИ отсека, кликнув на них ЛКМ.</PC>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>495</x>
+			<y>515</y>
+			<angle>270</angle>
+	</arrow>
+</step>
+
+<step name="FIRE_END">
+	<default>Открыв двери, вы выпустили кислород и потушили огонь. \n\nОтсек розовеет, когда заканчивается кислород. Кислородная система восстановит среду, когда пропадёт утечка.</default>
+	<continue>false</continue>
+</step>
+
+<step name="DAMAGE_SYSTEM_6">
+	<default>Теперь, когда двигатели отремонтированы и огонь потушен, настало время совершить FTL-прыжок к следующей локации. Прыжки требуют пилота в рубке управления.</default>
+	<continue>false</continue>
+</step>
+
+<step name="DAMAGE_SYSTEM_7">
+	<PC>Каждый прыжок расходует 1 единицу топлива. Без топлива вы не сможете совершать прыжки. Прыжок также требует пилота и включённые двигатели. \n\nНажмите кнопку ПРЫЖОК для продолжения.</default>
+	<IPAD>Каждый прыжок расходует 1 единицу топлива. Без топлива вы не сможете совершать прыжки. Прыжок также требует пилота и включённые двигатели. \n\nНажмите кнопку ПРЫЖОК для продолжения.</default>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>488</x>
+			<y>143</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>70</x>
+			<y>140</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>53</x>
+			<y>120</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>476</x>
+			<y>120</y>
+			<angle>270</angle>
+	</arrow>
+</step>
+
+<step name="STAR_MAP_1">
+	<PC>Это карта маяков. Маркер корабля указывает, где вы  находитесь. Наведите курсор на локацию, чтобы получить больше информации. \n\nНажмите ЛКМ на соединительном узле, чтобы переместиться к нему.</PC>
+	<IPAD>Это карта маяков. Маркер корабля указывает вашу текущую локацию. \n\nНАЖМИТЕ на локацию, чтобы узнать больше информации о ней. \n\nВыберите соседнюю локацию и нажмите ПРЫЖОК, чтобы переместиться туда.</IPAD>
+	<continue>false</continue>
+</step>
+
+<step name="COMBAT_0">
+	<PC>Добро пожаловать в бой! Вы можете использовать ПРОБЕЛ или СКМ, чтобы приостановить игру в любое время, выработать стратегию, раздать команды или перераспределить энергию.\n\nПопробуйте приостановить игру.</PC>
+	<IPAD>Добро пожаловать в бой! Нажмите кнопку ПАУЗЫ что бы приостановить игру в любое время для выработки стратегии, отдачи команд или перераспределения энергии. \n\nПопробуйте приостановить игру сейчас.</IPAD>
+	<continue>false</continue>
+	<arrow type="IPAD">
+			<x>847</x>
+			<y>582</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<step name="COMBAT_IPAD_0">
+	<IPAD>Заметьте, сейчас вы сфокусировались на одном корабле. Нажмите на любой корабль, чтобы переместить фокус и увеличить данный корабль. \n\nКогда вы будете готовы, нажмите на оружейную систему для подготовки к битве.</IPAD>
+	<continue>false</continue>
+	<arrow type="IPAD">
+			<x>4</x>
+			<y>550</y>
+			<angle>90</angle>
+	</arrow>
+</step>
+
+<step name="COMBAT_1">
+	<PC>Для битвы вам нужно включить оружие. Количество требуемой энергии отображено в блоке орудия (указано ниже). \n\nСделайте ЛЕВЫЙ клик, чтобы включить его (включённое оружие станет белым). ПРАВЫЙ клик выключает орудие.</PC>
+	<IPAD>Вам нужна энергия для оружия, чтобы сражаться. Требуемое количество энергии отображается на оружие. n\n\Нажмите на него, чтобы включить (включённое оружие подсвечено белым). Нажмите ВЫКЛ, чтобы выключить оружие.</IPAD>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>187</x>
+			<y>550</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>170</x>
+			<y>500</y>
+			<angle>180</angle>
+	</arrow>
+</step>
+
+<step name="COMBAT_2">
+	<PC>Сделайте ЛЕВЫЙ клик на включённом орудии, затем прицельтесь в отсек вражеского корабля, кликнув по нему. Можно пользоваться горячими клавишами 1-4. \nОрудие выстрелит, когда будет готово. Убедитесь, что игра не на паузе.</PC>
+	<IPAD>Теперь орудие запитано. НАЖМИТЕ на орудие снова, чтобы включить прицел, затем наведите его на отсек вражеского корабля и КЛИКНИТЕ на нем. \nОрудие выстрелит, как будет готово. Убедитесь, что игра не стоит на паузе (переключается с помощью нижней правой кнопки).</IPAD>
+	<continue>false</continue>
+</step>
+
+<step name="COMBAT_3">
+	<default>О нет! Ваш сдвоенный лазер не может пробить пиратские щиты 2 уровня, но, к счастью, враги также не могут пробить ваши щиты. \n\n(Заметка: Каждые 2 ячейки энергии в вашей системе щитов дают вам ещё 1 щит.)</default>
+	<continue>true</continue>
+		<arrow type="PC">
+			<x>7</x>
+			<y>537</y>
+			<angle>90</angle>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>120</x>
+			<y>70</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>935</x>
+			<y>110</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>-30</x>
+			<y>135</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>97</x>
+			<y>550</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD" relative="hostilebox">
+			<x>58</x>
+			<y>20</y>
+			<angle>180</angle>
+	</arrow>
+</step>
+
+<step name="COMBAT_4">
+	<default>Артемида автоматически экипируется в свободный слот. Стрельба из неё расходует запас ракет, зато ракеты проникают сквозь все вражеские щиты. \n\nИспользуйте ракеты, чтобы повредить систему щитов, а затем используйте лазеры.</default>
+	<continue>false</continue>
+		<arrow type="PC">
+			<x>320</x>
+			<y>510</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>150</x>
+			<y>145</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>1060</x>
+			<y>235</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>113</x>
+			<y>129</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>170</x>
+			<y>412</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="IPAD" relative="enemy">
+			<x>205</x>
+			<y>188</y>
+			<angle>180</angle>
+	</arrow>
+</step>
+
+<step name="COMBAT_4_5">
+	<default>Заметьте, когда вражеские системы повреждаются или разрушатся, их иконки становятся оранжевыми или красными. \n\nПовторные атаки разрушенных систем не наносят дополнительного урона, весь урон идёт только по корпусу.</default>
+	<continue>true</continue>
+</step>
+
+<step name="COMBAT_4_6">
+	<PC>Если вам нужно напоминание, что означают иконки вражеской системы, вы можете навести курсор на зелёные символы вдоль нижнего поля. \n\nВыбирайте цель с умом, орудия и щиты часто бывают хорошим выбором. Теперь победите пирата!</PC>
+	<IPAD>Если вам нужно напоминание, что означают иконки каждой вражеской системы, вы можете НАЖАТЬ и УДЕРЖИВАТЬ ваш палец на зеленых символах вдоль нижнего поля. \n\nВыбирайте вашу цель с умом, хотя орудия и щиты часто бывают хорошим выбором. </IPAD>
+	<continue>false</continue>
+</step>
+
+<step name="INVENTORY_1">
+	<PC>Оружие и дроны добавляются в ваш грузовой отсек, если больше нет места в соответствующей системе. \n\nКликните ЛКМ на кнопке КОРАБЛЬ, и вы сможете экипировать ваше новое оружие.</PC>
+	<IPAD>Оружие и дроны добавляются в ваш грузовой отсек, если больше нет места в соответствующей системе. \n\nНАЖМИТЕ на кнопку инфо корабля, и вы сможете экипировать ваше новое оружие.</IPAD>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>580</x>
+			<y>130</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>565</x>
+			<y>115</y>
+			<angle>270</angle>
+	</arrow>
+</step>
+
+<step name="INVENTORY_2">
+	<PC>Это экран вашего оборудования. Детальную информацию по орудиям, дронам и усилениям можно получить, наведя на них мышью. \n\nВыберите и перетащите новое орудие Луч Алебарда вместо Артемиды. Затем нажмите принять.</PC>
+	<IPAD>Это ваш экран экипировки. Вы можете посмотреть более подробную информацию о вашем оружии, дронах или улучшениях нажатием на них. \n\nНажмите и перетащите ваш новый Луч Алебарда на Артемиду, чтобы поменять их. Затем нажмите ПРИНЯТЬ.</IPAD>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>750</x>
+			<y>170</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>200</x>
+			<y>410</y>
+			<angle>0</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>450</x>
+			<y>170</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>184</x>
+			<y>394</y>
+			<angle>180</angle>
+	</arrow>
+</step>
+
+<step name="COMBAT_5">
+	<default>Упс, ваша система орудий (максимальная мощность 2) не достаточно улучшена, чтобы поддерживать новое орудие (необходимая мощность 3). \n\nОткройте экран вашего корабля, чтобы мы могли это исправить.</default>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>152</x>
+			<y>548</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>580</x>
+			<y>130</y>
+			<angle>270</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>23</x>
+			<y>300</y>
+			<angle>90</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>565</x>
+			<y>115</y>
+			<angle>270</angle>
+	</arrow>
+</step>
+
+<step name="UPGRADES_1">
+	<default>Это экран улучшений. Вы можете увидеть детальную информацию о ваших системах и улучшить их потратив ЛОМ. \n\nВы также можете улучшить ваш РЕАКТОР в нижней части меню, он очень важен для поддержания всех систем полностью заряженными.</default>
+	<continue>true</continue>
+	<arrow type="PC">
+			<x>505</x>
+			<y>10</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="PC">
+			<x>920</x>
+			<y>450</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>507</x>
+			<y>9</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>625</x>
+			<y>440</y>
+			<angle>180</angle>
+	</arrow>
+</step>
+
+<step name="UPGRADES_1_2">
+	<PC>\nСделайте ЛЕВЫЙ клик на вашей оружейной системе для её улучшения. Затем нажмите ПРИНЯТЬ, чтобы закрыть окно.</PC>
+	<IPAD>\nНажмите на вашу Оружейную систему, чтобы выбрать её, затем нажмите кнопку УЛУЧШЕНИЕ справа чтобы потратить лом и усовершенствовать систему. \n\nНажмите Принять, чтобы закрыть экран улучшений когда закончите.</IPAD>
+	<continue>false</continue>
+	<arrow type="PC">
+			<x>680</x>
+			<y>210</y>
+			<angle>180</angle>
+	</arrow>
+	<arrow type="IPAD">
+			<x>380</x>
+			<y>200</y>
+			<angle>180</angle>
+	</arrow>
+</step>
+
+<step name="UPGRADES_2">
+	<PC>Теперь запитайте ваше новое оружие. \n\nВозможно, вам понадобится выключить другие орудия, чтобы иметь достаточно энергии (правый клик отключает орудия).</PC>
+	<IPAD>Теперь испытайте, ваше новое оружие. \n\nВам может понадобиться выключить другое ваше оружие, чтобы иметь достаточно энергии (нажмите ВЫКЛ чтобы отключить другое оружие).</IPAD>
+	<continue>false</continue>
+</step>
+
+<step name="UPGRADES_3">
+	<PC>Заключительный совет: Мышкой можно перемещать орудия внутри оружейной панели. \n\nЕсли оружейная система будет повреждена, то орудия будут отключаться в порядке их установки (справа налево).</PC>
+	<IPAD>Заключительный совет: Вы можете изменить ваше оружие в системной панели оружие, нажав и перетащив. \n\nЕсли ваша система оружия повреждена, то оружие будет отключено сверху вниз.</IPAD>
+	<continue>true</continue>
+</step>
+
+<step name="DONE_1">
+	<PC>Вот и всё для начала. Удачи. \n\nНажмите ДАЛЬШЕ чтобы закончить этот урок.</PC>
+	<IPAD>Вот и всё для начала. Удачи. \n\nНажмите ДАЛЬШЕ чтобы закончить этот урок.</IPAD>
+	<continue>true</continue>
+</step>
